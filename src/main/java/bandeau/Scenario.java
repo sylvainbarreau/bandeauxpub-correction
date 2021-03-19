@@ -39,6 +39,17 @@ public class Scenario {
      * @param b le bandeau ou s'afficher.
      */
     public void playOn(Bandeau b) {
+           new Thread() {
+                @Override
+                public void run() {
+                    synchronized (b) {
+                        play(b);
+                    }
+                }
+            }.start();
+    }
+
+    private void play(Bandeau b) {
         for (ScenarioElement element : myElements) {
             for (int repeats = 0; repeats < element.repeats; repeats++) {
                 element.effect.playOn(b);

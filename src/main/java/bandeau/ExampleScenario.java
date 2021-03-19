@@ -24,7 +24,6 @@ public class ExampleScenario {
         // On cree un scenario
         Scenario s = new Scenario();
         // On lui ajoute des effets
-        //s.addEffect(new FontEnumerator(10), 1);
         s.addEffect(new RandomEffect("Le jeu du pendu", 700), 1);
         s.addEffect(new TeleType("Je m'affiche caractère par caractère", 100), 1);
         s.addEffect(new Blink("Je clignote 10x", 100), 10);
@@ -33,13 +32,19 @@ public class ExampleScenario {
         s.addEffect(new Rainbow("Comme c'est joli !", 30), 1);
         s.addEffect(new Rotate("2 tours à droite", 180, 4000, true), 2);
         s.addEffect(new Rotate("2 tours à gauche", 180, 4000, false), 2);
-        // On cree le bandeau
-        Bandeau b = new Bandeau();
-        b.setMessage(message);
-        b.sleep(2000);
-        // On joue le scenario sur le bandeau
-        s.playOn(b);
-        b.close();
+        // On cree les bandeaux
+        Bandeau b1 = new Bandeau();
+        Bandeau b2 = new Bandeau();
+        Bandeau b3 = new Bandeau();
+        b1.setMessage("Bandeau 1");
+        b2.setMessage("Bandeau 2");
+        b3.setMessage("Bandeau 3");
+        // On doit jouer le scénario en même temps sur les trois bandeaux
+        s.playOn(b1);
+        s.playOn(b2);
+        s.playOn(b3);  
+        // On rejoue le scénario sur b1 quand le premier jeu est fini
+        s.playOn(b1);             
     }
 
 }
