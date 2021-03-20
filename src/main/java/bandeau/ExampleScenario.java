@@ -36,9 +36,6 @@ public class ExampleScenario {
         Bandeau b1 = new Bandeau();
         Bandeau b2 = new Bandeau();
         Bandeau b3 = new Bandeau();
-        b1.setMessage("Bandeau 1");
-        b2.setMessage("Bandeau 2");
-        b3.setMessage("Bandeau 3");
         // On doit jouer le scénario en même temps sur les trois bandeaux
         s.playOn(b1);
         s.playOn(b2);
