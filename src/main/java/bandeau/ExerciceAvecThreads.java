@@ -1,15 +1,9 @@
 package bandeau;
 
-public class ExempleAvecThreads {
+public class ExerciceAvecThreads {
 
-    /**
-     * "Programme principal" : point d'entrée d'exécution
-     *
-     * @param args les "arguments de ligne de commande", transmis au lancement du
-     *             programme
-     */
     public static void main(String[] args) {
-        ExempleAvecThreads instance = new ExempleAvecThreads();
+        ExerciceAvecThreads instance = new ExerciceAvecThreads();
         instance.exemple();
     }
 
