@@ -1,0 +1,13 @@
+{
+	// configuration pour exécuter le projet sous vs-code
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"type": "java",
+			"name": "ExempleAvecThreads",
+			"request": "launch",
+			"mainClass": "bandeau.ExempleAvecThreads",
+			"projectName": "Bandeau_Correction"
+		}
+	]
+}
