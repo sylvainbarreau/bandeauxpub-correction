@@ -17,9 +17,11 @@ public class ExerciceAvecThreads {
         // On doit jouer le scénario en même temps sur les trois bandeaux
         s.playOn(b1);
         s.playOn(b2);
-        s.playOn(b3);
         // On rejoue le scénario sur b1 quand le premier jeu est fini
         s.playOn(b1);
+        modifieScenario(s);
+        // Le scénario joué sur b1 a-t-il été modifié ? pourquoi ?
+        s.playOn(b3);
         System.out.println("CTRL-C pour terminer le programme");
     }
 
@@ -36,5 +38,16 @@ public class ExerciceAvecThreads {
         // s.addEffect(new Rotate("2 tours à droite", 180, 4000, true), 2);
         // s.addEffect(new Rotate("2 tours à gauche", 180, 4000, false), 2);
         return s;
+    }
+
+    private void modifieScenario(Scenario s) {
+        System.out.println("On commence à modifier le scénario");
+        // On ne peut pas changer un scénario quand il est en train de se jouer
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+        }
+        s.addEffect(new FontEnumerator(10), 1);
+        System.out.println("On a fini de modifier le scénario");
     }
 }
