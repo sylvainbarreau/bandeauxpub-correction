@@ -11,9 +11,9 @@ public class ExerciceAvecThreads {
 
         Scenario s = makeScenario();
         // On cree les bandeaux
-        Bandeau b1 = new Bandeau();
-        Bandeau b2 = new Bandeau();
-        Bandeau b3 = new Bandeau();
+        var b1 = new BandeauVerrouillable();
+        var b2 = new BandeauVerrouillable();
+        var b3 = new BandeauVerrouillable();
         // On doit jouer le scénario en même temps sur les trois bandeaux
         s.playOn(b1);
         s.playOn(b2);

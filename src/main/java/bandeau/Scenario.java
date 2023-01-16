@@ -51,17 +51,17 @@ public class Scenario {
      *
      * @param b le bandeau ou s'afficher.
      */
-    public void playOn(Bandeau b) {
+    public void playOn(BandeauVerrouillable b) {
         new Thread(
             // "lambda-expression"
             () -> {
-                // On se synchronise sur le bandeau 
-                // pour assurer l'exclusion mutuelle
-                synchronized (b) {
+                b.verrouille();
+                try {
                     play(b);
+                } finally {
+                    b.deverrouille();
                 }
-            }
-        ).start();
+            }).start();
     }
 
     private void play(Bandeau b) {

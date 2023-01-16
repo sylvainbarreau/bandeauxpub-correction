@@ -8,7 +8,8 @@ public class BandeauVerrouillable extends Bandeau {
     public void verrouille() {
         verrou.lock();
     }
-    public void déverrouille() {
+    
+    public void deverrouille() {
         verrou.unlock();
     }
 }
