@@ -35,10 +35,10 @@ public class ExempleDeScenario {
         System.out.println("CTRL+C pour terminer le programme");
         // On doit jouer le scénario en même temps sur plusieurs bandeaux :
         s.playOn(b1);
+        
+        s.addEffect(new TeleType("Je m'affiche caractère par caractère", 100), 1);
+        s.addEffect(new Blink("Je clignote 10x", 100), 10);
         s.playOn(b2);
-
-        // On rejoue le scénario sur b1 quand le premier jeu est fini
-        s.playOn(b1);
 
     }
 
