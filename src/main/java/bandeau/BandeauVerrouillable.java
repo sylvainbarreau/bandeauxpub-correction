@@ -1,5 +1,14 @@
 package bandeau;
 
-public class BandeauVerrouillable extends Bandeau {
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
+public class BandeauVerrouillable extends Bandeau {
+    private final Lock verrou = new ReentrantLock();
+    public void verrouillage() {
+        verrou.lock();
+    }
+    public void deverrouillage() {
+        verrou.lock();
+    }
 }

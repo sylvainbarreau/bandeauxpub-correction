@@ -22,7 +22,7 @@ class ScenarioElement {
 public class Scenario {
 
     private final List<ScenarioElement> myElements = new LinkedList<>();
-
+    //private BandeauVerrouillable b;
     /**
      * Ajouter un effect au scenario.
      *
@@ -38,11 +38,21 @@ public class Scenario {
      *
      * @param b le bandeau ou s'afficher.
      */
-    public void playOn(Bandeau b) {
-        for (ScenarioElement element : myElements) {
-            for (int repeats = 0; repeats < element.repeats; repeats++) {
-                element.effect.playOn(b);
+    public void playOn(BandeauVerrouillable b) {
+        Thread t = new Thread() {
+            public void run() {
+                b.verrouillage();
+                try {
+                for (ScenarioElement element : myElements) {
+                    for (int repeats = 0; repeats < element.repeats; repeats++) {
+                        element.effect.playOn(b);
+                    }
+                }
+            } finally {
+                b.deverrouillage();
             }
-        }
+            }
+        };
+        t.start();
     }
 }
