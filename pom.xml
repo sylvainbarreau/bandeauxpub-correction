@@ -7,23 +7,31 @@
 	<packaging>jar</packaging>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<maven.compiler.source>1.8</maven.compiler.source>
-		<maven.compiler.target>1.8</maven.compiler.target>
-		<!-- configuration du plugin exec-maven-plugin  -->            
-		<!-- On pourra exécuter le programme avec : 'mvn package exec:java' -->            
-		<exec.mainClass>bandeau.ExampleScenario</exec.mainClass>       
-	    </properties>
-	
-	    <dependencies>
-		<!-- On configure la dépendance sur la classe "Bandeau"  -->                    
+		<maven.compiler.source>17</maven.compiler.source>
+		<maven.compiler.target>17</maven.compiler.target>
+		<!-- configuration du plugin exec-maven-plugin  -->
+		<!-- On pourra exécuter le programme avec : 'mvn package exec:java' -->
+		<exec.mainClass>bandeau.ExerciceAvecThreads</exec.mainClass>
+	</properties>
+
+	<dependencies>
+		<!-- On configure la dépendance sur la classe "Bandeau"  -->
 		<dependency>
+<<<<<<< HEAD
 		    <groupId>io.github.bastide</groupId>
 		    <artifactId>bandeau</artifactId>
 		    <version>1.3</version>
+=======
+			<groupId>io.github.bastide</groupId>
+			<artifactId>bandeau</artifactId>
+			<version>1.3</version>
+>>>>>>> sb/correction-sb
 		</dependency>
-	    </dependencies>
-	    <build>
+	</dependencies>
+
+	<build>
 		<plugins>
+<<<<<<< HEAD
 		    <plugin>
 			<groupId>org.apache.maven.plugins</groupId>
 			<artifactId>maven-dependency-plugin</artifactId>
@@ -42,6 +50,26 @@
 			    </execution>
 			</executions>
 		    </plugin>
+=======
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>3.2.0</version>
+				<executions>
+					<execution>
+						<?m2e execute onConfiguration,onIncremental?>
+						<goals>
+							<goal>sources</goal>
+							<goal>resolve</goal>
+						</goals>
+						<configuration>
+							<classifier>javadoc</classifier>
+							<classifier>sources</classifier>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+>>>>>>> sb/correction-sb
 		</plugins>
-	    </build>    
+	</build>
 </project>
